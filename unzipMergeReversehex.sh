@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-
 for ZIPFILE in $1.*.txt.zip
     do
         unzip $ZIPFILE
