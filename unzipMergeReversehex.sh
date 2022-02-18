@@ -1,11 +1,9 @@
 #!/bin/bash
 set -e
 
-INNAME=$1
-OUTFILE=$2
-
-while read FILE;
-do unzip $FILE;
-done <<< $(ls "$INNAME"*.zip)
-cat "$INNAME"*.txt | xxd -r > $OUTFILE
-rm "$INNAME"*.txt
+for ZIPFILE in $1.*.txt.zip
+    do
+        unzip $ZIPFILE
+done
+cat $1.*.txt | xxd -r > $1
+rm $1.*.txt
